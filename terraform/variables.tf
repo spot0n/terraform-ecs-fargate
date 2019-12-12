@@ -25,6 +25,16 @@ variable "app_count" {
   default     = 1
 }
 
+variable "min_app_count" {
+  description = "Minimum number of docker containers to run"
+  default     = 1
+}
+
+variable "max_app_count" {
+  description = "Maximum number of docker containers to run"
+  default     = 1
+}
+
 variable "health_check_path" {
   default = "/health"
 }
