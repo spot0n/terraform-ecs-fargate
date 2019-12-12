@@ -2,17 +2,12 @@
 
 variable "aws_region" {
   description = "The AWS region things are created in"
-  default     = "us-west-2"
+  default     = "us-east-1"
 }
 
 variable "ecs_task_execution_role_name" {
   description = "ECS task execution role name"
   default = "myEcsTaskExecutionRole"
-}
-
-variable "az_count" {
-  description = "Number of AZs to cover in a given region"
-  default     = "2"
 }
 
 variable "app_image" {
@@ -27,20 +22,40 @@ variable "app_port" {
 
 variable "app_count" {
   description = "Number of docker containers to run"
-  default     = 3
+  default     = 1
 }
 
 variable "health_check_path" {
-  default = "/"
+  default = "/health"
 }
 
 variable "fargate_cpu" {
   description = "Fargate instance CPU units to provision (1 vCPU = 1024 CPU units)"
-  default     = "1024"
+  default     = "256"
 }
 
 variable "fargate_memory" {
   description = "Fargate instance memory to provision (in MiB)"
-  default     = "2048"
+  default     = "1024"
 }
 
+variable "aws_ecs_cluster" {
+  description = "ECS cluster ID used for creating ECS service"
+}
+
+variable "app_name" {
+  description = "ECS Service name"
+}
+
+variable "alb_subnets" {
+  description = "Subnets to use for ALB"
+}
+
+variable "ecs_service_subnets" {
+  description = "Subnets to use for ECS Service"
+}
+
+
+variable "aws_vpc_id" {
+  description = "VPC ID to be used for building service and ALB"
+}

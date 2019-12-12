@@ -1,7 +1,7 @@
-# Compiled files
+.project
+.terraform
 *.tfstate
-*.tfstate.backup
-.terraform.tfstate.lock.info
+codeship.aes
+env
+terraform.tfstate.backup
 
-# Module directory
-.terraform/
