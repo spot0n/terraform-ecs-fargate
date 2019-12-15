@@ -55,6 +55,11 @@ variable "health_check_healthy_threshold" {
   default = 3
 }
 
+variable "add_load_balancer" {
+  description = "Whether to add a load balancer"
+  default     = true
+}
+
 variable "fargate_cpu" {
   description = "Fargate instance CPU units to provision (1 vCPU = 1024 CPU units)"
   default     = "256"

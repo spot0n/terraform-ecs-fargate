@@ -35,11 +35,14 @@ resource "aws_ecs_service" "main" {
     subnets          = var.ecs_service_subnets
     assign_public_ip = true
   }
-
-  load_balancer {
-    target_group_arn = aws_alb_target_group.app.id
-    container_name   = var.app_name
-    container_port   = var.app_port
+  
+  dynamic "load_balancer" {
+    for_each = var.add_load_balancer == false ? [] : [var.add_load_balancer]
+    content {
+      target_group_arn = aws_alb_target_group.app.id
+      container_name   = var.app_name
+      container_port   = var.app_port
+    }
   }
 
   depends_on = [aws_alb_listener.front_end, aws_iam_role_policy_attachment.ecs_task_execution_role]
