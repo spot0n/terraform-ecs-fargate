@@ -39,6 +39,22 @@ variable "health_check_path" {
   default = "/health"
 }
 
+variable "health_check_timeout" {
+  default = 3
+}
+
+variable "health_check_unhealthy_threshold" {
+  default = 3
+}
+
+variable "health_check_interval" {
+  default = 30
+}
+
+variable "health_check_healthy_threshold" {
+  default = 3
+}
+
 variable "fargate_cpu" {
   description = "Fargate instance CPU units to provision (1 vCPU = 1024 CPU units)"
   default     = "256"
